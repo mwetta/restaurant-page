@@ -1,9 +1,12 @@
 import mainPage from './home.js'
+import menuPage from './menu.js'
+import contactPage from './contact.js'
+import errorPage from './error.js'
+
 import './style.css'
 const content = document.querySelector('#content');
 
 const navbar = (() => {
-
     const writeNavbar = () => {
         let navbar = document.createElement('div');
         navbar.setAttribute('id', 'navbar');
@@ -31,9 +34,28 @@ const navbar = (() => {
             let main = document.getElementById('main');
             console.log(main);
                 while (main.firstChild) {
+                    console.log('will remove main');
                     main.removeChild(main.firstChild);
                 }
-            console.log(id);
+            content.removeChild(main);
+            writeNewPage(id);
+        }
+
+        const writeNewPage = (pageName) => {
+            console.log(pageName);
+            if (pageName == 'menu') {
+                console.log('trigger menu');
+                menuPage.writeMenuPage();
+            } else if (pageName == 'contact') {
+                console.log('trigger contact');
+                contactPage.writeContactPage();
+            } else if (pageName == 'home') {
+                console.log('trigger main page');
+                mainPage.writeMainPage();
+            } else {
+                console.log('trigger error');
+                errorPage.writeErrorPage();
+            }
         }
 
         newMenuItem('home');
