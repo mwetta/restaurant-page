@@ -10,30 +10,38 @@ const navbar = (() => {
         let navbar = document.createElement('div');
         navbar.setAttribute('id', 'navbar');
         content.appendChild(navbar);
-
         const newMenuItem = (id) => {
             let menuItem = document.createElement('div');
             menuItem.setAttribute('id', `${id}`);
-            menuItem.setAttribute('class', 'item');
+            menuItem.classList.add('inactive');
+            menuItem.classList.add('inactive');
+            menuItem.addEventListener('click', () => {
+                let activeItems = document.querySelectorAll('.active'); 
+                activeItems.forEach((activeItem) => {
+                    activeItem.classList.remove('active');
+                    activeItem.classList.add('inactive');
+                })
+                menuItem.classList.remove('inactive');
+                menuItem.classList.add('active');
+                rewriteContent(menuItem.id);
+            })
             menuItem.textContent = `${id}`;
             navbar.appendChild(menuItem);
         }
+
+        const rewriteContent = (id) => {
+            let main = document.getElementById('main');
+            console.log(main);
+                while (main.firstChild) {
+                    main.removeChild(main.firstChild);
+                }
+            console.log(id);
+        }
+
         newMenuItem('home');
         newMenuItem('menu');
         newMenuItem('contact');
     }
-
-    /*
-    establish classes for active and inactive
-        how do you want to handle removing classes from previously active tabs? tab swithcer utility
-    default to "home" showing on page load
-    event listener for each tab
-    onclick tab, send id and show content only for that tab
-        reset content (tab id) => remove all children
-        if home run home
-        if menu run menu
-        if contact run contact
-    */
     return {writeNavbar}
 })();
 

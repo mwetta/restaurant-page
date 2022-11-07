@@ -84,7 +84,11 @@ input[type=text] {
     justify-content: center;
     height: 30px;
     width: 100px;
-    background: var(--powder-blue)
+    cursor: pointer;
+}
+
+#navbar>div:hover {
+    box-shadow: 1px 1px 6px #cacaca;
 }
 
 #header,
@@ -94,7 +98,13 @@ input[type=text] {
 }
 
 .active {
-    background-color: var(--maximum-red);
+    background-color: var(--persian-plum);
+    font-weight: 700;
+    color: white;
+}
+
+.inactive {
+    background-color: var(--powder-blue);
 }
 
 #main {
