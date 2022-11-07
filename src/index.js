@@ -2,8 +2,6 @@ import mainPage from './home.js'
 import './style.css'
 const content = document.querySelector('#content');
 
-
-
 const navbar = (() => {
 
     const writeNavbar = () => {
