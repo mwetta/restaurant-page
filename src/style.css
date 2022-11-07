@@ -76,32 +76,53 @@ input[type=text] {
 #navbar {
     display: flex;
     gap: 30px;
+    justify-content: center;
+}
+
+#navbar>div {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    width: 100px;
+    background: var(--powder-blue)
+}
+
+#header,
+#body,
+#navbar>div {
+    padding: 10px;
+}
+
+.active {
+    background-color: var(--maximum-red);
 }
 
 #main {
     display: grid;
     grid-template-columns: 30px 1fr 1fr 30px;
-    grid-template-rows: 100px auto;
+    grid-template-rows: 30px 100px 100px auto;
     grid-template-areas:
+        ". . . ."
+        ". . sidebar ."
         ". header  sidebar. "
         ". body sidebar ."
+        ". . sidebar ."
         "footer footer footer footer"
     ;
 }
 
 #header {
     grid-area: header;
-    background-color: #c0deddff;
+    background-color: #77191eff;
 }
 
 #body {
     grid-area: body;
-    background-color: #77191eff;
+    background-color: #c0deddff;
 }
 
 #sidebar {
     grid-area: sidebar;
-    background-color: #7fbdd4ff;
 }
 
 #sidebar img {
